@@ -1,20 +1,34 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Portals Dev Code Templates
+## Install 
+```
+npm install -g hygen
+```
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## SPFX React Component
+```
+hygen react comp [--path]
+```
+This will generate a new React component with all the boilerplate as well as a SASS module for styling that component.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+*Create a new component using the default path, `src/components`. It will ask you for a Component Name.*
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+```
+hygen react comp
+```
+*Expected output*
+```
+added: src/components/my_new_comp_demo/MyNewCompDemo.tsx
+added: src/components/my_new_comp_demo/MyNewCompDemo.module.scss
+```
+> **Why is it creating that "lowercased, underscored" folder?!** 
+> This is to provide future support for BIT components. Currently, Bit components can not contain capital letters.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+*Create a new component with a specific `path`*
+```
+hygen react comp --path .\src\webparts\FeaturedLinks\com
+```
+*Expected output*
+```
+added: .\src\webparts\FeaturedLinks\components/link_tile/LinkTile.tsx
+added: .\src\webparts\FeaturedLinks\components/link_tile/LinkTile.module.scss
+```
