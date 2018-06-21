@@ -52,13 +52,31 @@ hygen webparts announcements
     - [`components/icon-image`](https://bitsrc.io/droopytersen/portalsdev/components/icon-image/code)
     - [`propertyfields/propertyfield-blank`](https://bitsrc.io/droopytersen/portalsdev/propertyfields/propertyfield-blank/code)
     - [`webparts/announcements`](https://bitsrc.io/droopytersen/portalsdev/webparts/announcements/code)
-- Fix the stupid Bit component thing where the actual announcements web part code is nested in the BIT Component
+- Fix the stupid Bit component thing where the actual web part code is nested in the BIT Component
     - Move `/webparts/announcements/webparts/announcements` to `/webparts/_announcements`
     - Delete `/webparts/announcements`
-    - Rename `/webparts/_announcements` to `/webparts/_announcements`
+    - Rename `/webparts/_announcements` to `/webparts/announcements`
 - Add a `bundle` entry to `config/config.json`
 - Ensure PnP controls' `localizedResources` in `config/config.json`
 - NPM install `date-fns`, `sp-pnp-js`, `@pnp/spfx-property-controls`, `@pnp/spfx-controls-react`
+
+## Featured Links Web Part
+```
+hygen webparts announcements
+```
+
+- Import [Bit Dependencies](https://bitsrc.io/droopytersen/portalsdev)
+    - [`core/utils`](https://bitsrc.io/droopytersen/portalsdev/core/utils/code)
+    - [`components/ensure-dependencies`](https://bitsrc.io/droopytersen/portalsdev/components/ensure-dependencies/code)
+    - [`propertyfields/propertyfield-blank`](https://bitsrc.io/droopytersen/portalsdev/propertyfields/propertyfield-blank/code)
+    - [`webparts/featured_links`](https://bitsrc.io/droopytersen/portalsdev/webparts/featured_links/code)
+- Fix the stupid Bit component thing where the actual web part code is nested in the BIT Component
+    - Move `/webparts/featured_links/webparts/featured_links` to `/webparts/_featured_links`
+    - Delete `/webparts/featured_links`
+    - Rename `/webparts/_featured_links` to `/webparts/featured_links`
+- Add a `bundle` entry to `config/config.json`
+- Ensure PnP controls' `localizedResources` in `config/config.json`
+- NPM install `sp-pnp-js`, `@pnp/spfx-property-controls`, `@pnp/spfx-controls-react`
 
 ## SPFX React Component
 ```

@@ -1,3 +1,3 @@
 ---
-sh: "bit import droopytersen.portalsdev/components/icon-image --ignore-package-json"
+sh: "powershell \"_templates/_helpers/TryBitImport.ps1 -Id components/icon-image\""
 ---

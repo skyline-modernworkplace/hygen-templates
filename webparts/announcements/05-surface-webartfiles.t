@@ -1,3 +1,3 @@
 ---
-sh: "powershell \"mv .\\src\\webparts\\announcements\\webparts\\announcements .\\src\\webparts\\_announcements; rimraf .\\src\\webparts\\announcements; mv src/webparts/_announcements src/webparts/announcements \""
+sh: "powershell \"_templates/_helpers/SurfaceWebPart.ps1 -name announcements\""
 ---
