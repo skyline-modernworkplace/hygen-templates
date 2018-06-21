@@ -1,9 +1,6 @@
 ---
-to: <%= locals.path || "src/components" %>/<%= h.inflection.underscore(name) %>/<%= name %>.tsx
+to: <%= path %>/<%= h.inflection.underscore(folderName) %>/<%= Name %>.tsx
 ---
-<%
- Name = h.inflection.camelize(name, false);
-%>
 import * as React from 'react';
 import styles from "./<%= Name %>.module.scss"
 export default class <%= Name %> extends React.Component<<%= Name %>Props, {}> {
