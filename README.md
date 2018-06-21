@@ -10,6 +10,12 @@ hygen react comp [--path]
 ```
 This will generate a new React component with all the boilerplate as well as a SASS module for styling that component.
 
+1. Create a new folder for the component using a lowercased, underscored version of `name`
+2. Create `{name}.module.scss` file.
+    - Import the UI Fabric stuff so you can reference theme variables
+3. Create a `{name}.tsx` file with basic React component boilerplate.
+    - Import the newly created `{name}.module.scss`
+
 *Create a new component using the default path, `src/components`. It will ask you for a Component Name.*
 
 ```
