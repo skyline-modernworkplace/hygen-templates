@@ -4,6 +4,25 @@
 npm install -g hygen
 ```
 
+## Announcements Web Part
+```
+hygen webparts announcements
+```
+
+- Import [Bit Dependencies](https://bitsrc.io/droopytersen/portalsdev)
+    - [`core/utils`](https://bitsrc.io/droopytersen/portalsdev/core/utils/code)
+    - [`components/ensure-dependencies`](https://bitsrc.io/droopytersen/portalsdev/components/ensure-dependencies/code)
+    - [`components/icon-image`](https://bitsrc.io/droopytersen/portalsdev/components/icon-image/code)
+    - [`propertyfields/propertyfield-blank`](https://bitsrc.io/droopytersen/portalsdev/propertyfields/propertyfield-blank/code)
+    - [`webparts/announcements`](https://bitsrc.io/droopytersen/portalsdev/webparts/announcements/code)
+- Fix the stupid Bit component thing where the actual announcements web part code is nested in the BIT Component
+    - Move `/webparts/announcements/webparts/announcements` to `/webparts/_announcements`
+    - Delete `/webparts/announcements`
+    - Rename `/webparts/_announcements` to `/webparts/_announcements`
+- Add a `bundle` entry to `config/config.json`
+- Ensure PnP controls' `localizedResources` in `config/config.json`
+- NPM install `date-fns`, `sp-pnp-js`, `@pnp/spfx-property-controls`, `@pnp/spfx-controls-react`
+
 ## SPFX React Component
 ```
 hygen react comp [--path]
@@ -38,3 +57,6 @@ hygen react comp --path .\src\webparts\FeaturedLinks\com
 added: .\src\webparts\FeaturedLinks\components/link_tile/LinkTile.tsx
 added: .\src\webparts\FeaturedLinks\components/link_tile/LinkTile.module.scss
 ```
+
+## TODO: Project
+- Update `tsconfig` set `lib` to `es6`
