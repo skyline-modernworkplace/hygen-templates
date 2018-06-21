@@ -4,6 +4,20 @@
 npm install -g hygen
 ```
 
+## Roadmap
+- ~~React Component (SPFx, Typescript, w/ Sass Module)~~
+- ~~Announcements Web Part~~
+- Modern Branding (tasks/applyBranding)
+- Create Site Collection App Catalog (tasks/appCatalog)
+- SPFx Custom Property Field
+- Tabify Web Part
+- My Groups Web Part
+- Blank Web Part
+- Component Installer
+- Top Nav (Menu)
+- Project Generator (plays niceley with SPFx 1.5)
+- Anniversaries Web Part
+
 ## Announcements Web Part
 ```
 hygen webparts announcements
