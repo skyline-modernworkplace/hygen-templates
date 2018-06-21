@@ -1,7 +1,9 @@
 # Portals Dev Code Templates
 ## Install 
+Install the `hygen` tool, as well as a few tools the generators depend on.
 ```
 npm install -g hygen
+npm install -g bit-bin rimraf
 ```
 
 ## Roadmap
