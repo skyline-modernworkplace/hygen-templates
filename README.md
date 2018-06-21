@@ -9,6 +9,7 @@ npm install -g bit-bin rimraf
 ## Roadmap
 - ~~React Component (SPFx, Typescript, w/ Sass Module)~~
 - ~~Announcements Web Part~~
+- Featured Links Web Part
 - Modern Branding (tasks/applyBranding)
 - Create Site Collection App Catalog (tasks/appCatalog)
 - SPFx Custom Property Field
@@ -17,8 +18,28 @@ npm install -g bit-bin rimraf
 - Blank Web Part
 - Component Installer
 - Top Nav (Menu)
-- Project Generator (plays niceley with SPFx 1.5)
+- Project Generator (that plays niceley with SPFx 1.5)
 - Anniversaries Web Part
+
+## Setup a Project to use Generators
+1. Add `_templates` to the bottom of your project's `.gitignore`
+2. Clone the [generator repo](https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates) into `/_templates`
+```
+git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
+```
+
+This will create a nested GIT repository. If you end up modifying generators, you'll need to `cd` into the `_templates` folder and commit it via the CLI
+
+
+*For example, if I created a new generator*
+```
+cd _templates
+git add -A
+git commit -m "added a BLAH generator"
+git push origin master
+cd ..
+```
+> If you push updates PLEASE DOCUMENT them!!
 
 ## Announcements Web Part
 ```
