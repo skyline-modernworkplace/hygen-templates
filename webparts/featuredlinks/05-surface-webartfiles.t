@@ -1,3 +1,3 @@
 ---
-sh: "powershell \"_templates/_helpers/SurfaceWebPart.ps1 -name feature_links\""
+sh: "powershell \"_templates/_helpers/SurfaceWebPart.ps1 -name featured_links\""
 ---
