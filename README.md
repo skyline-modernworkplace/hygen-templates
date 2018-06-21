@@ -50,7 +50,7 @@ added: src/components/my_new_comp_demo/MyNewCompDemo.module.scss
 
 *Create a new component with a specific `path`*
 ```
-hygen react comp --path .\src\webparts\FeaturedLinks\com
+hygen react comp --path .\src\webparts\FeaturedLinks\components
 ```
 *Expected output*
 ```
