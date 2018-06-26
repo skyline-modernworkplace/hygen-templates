@@ -8,12 +8,16 @@ npm install -g bit-bin rimraf
 
 ## Roadmap
 - ~~React Component (SPFx, Typescript, w/ Sass Module)~~
+    - `hygen react comp`
 - ~~Announcements Web Part~~
-- Featured Links Web Part
+    - `hygen webparts announcements`
+- ~~Featured Links Web Part~~
+    - `hygen webparts featuredlinks`
+- ~~Tabify Web Part~~
+    - `hygen webparts tabify`
 - Modern Branding (tasks/applyBranding)
 - Create Site Collection App Catalog (tasks/appCatalog)
 - SPFx Custom Property Field
-- Tabify Web Part
 - My Groups Web Part
 - Blank Web Part
 - Component Installer
@@ -77,6 +81,23 @@ hygen webparts announcements
 - Add a `bundle` entry to `config/config.json`
 - Ensure PnP controls' `localizedResources` in `config/config.json`
 - NPM install `sp-pnp-js`, `@pnp/spfx-property-controls`, `@pnp/spfx-controls-react`
+
+## Tabify Web Part
+```
+hygen webparts tabify
+```
+
+- Import [Bit Dependencies](https://bitsrc.io/droopytersen/portalsdev)
+    - [`core/utils`](https://bitsrc.io/droopytersen/portalsdev/core/utils/code)
+    - [`components/sortable_list`](https://bitsrc.io/droopytersen/portalsdev/components/sortable_list/code)
+    - [`components/webpart_title`](https://bitsrc.io/droopytersen/portalsdev/components/webpart_title/code)
+    - [`webparts/tabify`](https://bitsrc.io/droopytersen/portalsdev/webparts/tabify/code)
+- Fix the stupid Bit component thing where the actual web part code is nested in the BIT Component
+    - Move `/webparts/tabify/webparts/tabify` to `/webparts/_tabify`
+    - Delete `/webparts/tabify`
+    - Rename `/webparts/_tabify` to `/webparts/tabify`
+- Add a `bundle` entry to `config/config.json`
+- NPM install `react-sortable`, `@pnp/spfx-property-controls`, `@pnp/spfx-controls-react`
 
 ## SPFX React Component
 ```
