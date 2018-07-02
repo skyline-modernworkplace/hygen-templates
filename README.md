@@ -9,6 +9,8 @@ npm install -g bit-bin rimraf
 ## Roadmap
 - ~~React Component (SPFx, Typescript, w/ Sass Module)~~
     - `hygen react comp`
+- ~~Blank Web Part~~
+    - `hygen webparts blank`
 - ~~Announcements Web Part~~
     - `hygen webparts announcements`
 - ~~Featured Links Web Part~~
@@ -19,7 +21,6 @@ npm install -g bit-bin rimraf
 - Create Site Collection App Catalog (tasks/appCatalog)
 - SPFx Custom Property Field
 - My Groups Web Part
-- Blank Web Part
 - Component Installer
 - Top Nav (Menu)
 - Project Generator (that plays niceley with SPFx 1.5)
@@ -44,6 +45,18 @@ git push origin master
 cd ..
 ```
 > If you push updates PLEASE DOCUMENT them!!
+
+## Blank Web Part
+```
+hygen webparts blank
+```
+![Blank Web Part](https://res.cloudinary.com/droopytersen/image/upload/v1530556566/docs/hygen/hygen-webparts-blank.png)
+- Create a WebPart.ts
+- Create a Web Part Properties file
+- Create a Web Part manifest
+- Create a container React component and Sass module
+- Integrate the PnP Web Part title control
+- Add the new web part to the bundle config
 
 ## Announcements Web Part
 ```
