@@ -1,0 +1,24 @@
+{
+  "name": "hygen-templates",
+  "version": "1.0.0",
+  "description": "PortalsDev micro generators",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates"
+  },
+  "keywords": [
+    "hygen",
+    "portalsdev",
+    "generators",
+    "spfx"
+  ],
+  "author": "PortalsDev",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
