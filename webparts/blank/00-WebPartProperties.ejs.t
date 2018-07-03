@@ -9,7 +9,7 @@ import {
     IPropertyPaneField, 
     IPropertyPaneTextFieldProps 
 } from '@microsoft/sp-webpart-base';
-import WebPartContext from '@microsoft/sp-webpart-base/lib/core/WebPartContext';
+import { WebPartContext } from '@microsoft/sp-webpart-base';
 
 export interface WebPartProperties {
     title: string,

@@ -129,3 +129,6 @@ This will generate a new React component with all the boilerplate as well as a S
 
 ## TODO: Project
 - Update `tsconfig` set `lib` to `es6`
+- Rename solution package to be friendlier name
+- rename bundle to not be the webpart but the actual project name
+- `npm install @pnp/spfx-controls-react @pnp/spfx-property-controls`
