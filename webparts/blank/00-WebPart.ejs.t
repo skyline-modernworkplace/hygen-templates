@@ -32,6 +32,9 @@ export default class <%= Name %>WebPart extends BaseClientSideWebPart<WebPartPro
         return Version.parse('1.0');
     }
   
+    protected onDispose(): void {
+        ReactDom.unmountComponentAtNode(this.domElement);
+    }
     protected handleUpdate(property, value) {
         this.properties[property] = value;
         this.render();
