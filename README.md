@@ -17,9 +17,10 @@ npm install -g bit-bin rimraf
     - `hygen webparts featuredlinks`
 - ~~Tabify Web Part~~
     - `hygen webparts tabify`
+- ~~SPFx Custom Property Field~~
+    - `hygen spfx propertyfield`
 - Modern Branding (tasks/applyBranding)
 - Create Site Collection App Catalog (tasks/appCatalog)
-- SPFx Custom Property Field
 - My Groups Web Part
 - Component Installer
 - Top Nav (Menu)
@@ -29,8 +30,12 @@ npm install -g bit-bin rimraf
 ## Setup a Project to use Generators
 1. Add `_templates` to the bottom of your project's `.gitignore`
 2. Clone the [generator repo](https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates) into `/_templates`
+3. Install dependencies
 ```
 git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
+cd _templates
+npm install
+cd ..
 ```
 
 This will create a nested GIT repository. If you end up modifying generators, you'll need to `cd` into the `_templates` folder and commit it via the CLI
@@ -58,6 +63,10 @@ hygen webparts blank
 - Integrate the PnP Web Part title control
 - Add the new web part to the bundle config
 
+## Custom SPFx Property Field
+```
+hygen spfx propertyfield
+```
 ## Announcements Web Part
 ```
 hygen webparts announcements
