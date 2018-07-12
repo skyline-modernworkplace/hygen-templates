@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= h.inflection.underscore(folderName) %>/<%= h.inflection.camelize(name, false) %>.tsx
+to: <%= path %>/<%= h.inflection.underscore(name) %>/<%= h.inflection.camelize(name, false) %>.tsx
 ---
 <%
  Name = h.inflection.camelize(name, false)
@@ -18,4 +18,7 @@ export default class <%= Name %> extends React.Component<<%= Name %>Props, {}> {
 
 export interface <%= Name %>Props {
     //props
+    value: any,
+    onChange: (newValue) => void,
+    label: string,
 }
