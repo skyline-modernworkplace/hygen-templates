@@ -15,4 +15,4 @@ fileHelpers.findAndReplace("config/config.json", "[]",  `[
         ]`
     )
 
-fileHelpers.findAndReplace("config/package-solution", '"skipFeatureDeployment": "true"', '"skipFeatureDeployment": true')
+fileHelpers.findAndReplace("config/package-solution.json", '"skipFeatureDeployment": "true"', '"skipFeatureDeployment": true')
