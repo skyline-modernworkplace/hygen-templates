@@ -1,13 +1,3 @@
 ---
-inject: true
-to: config/config.json
-after: components
-skip_if: <%= h.inflection.camelize(name, false) %>WebPart.js
+sh: "node \"_templates/_helpers/addBundleComponent\" --name <%= h.inflection.camelize(name, false) %> --folder <%= h.inflection.underscore(name) %>"
 ---
-<%
- Name = h.inflection.camelize(name, false)
-%>
-				{
-					"entrypoint": "./lib/webparts/<%= h.inflection.underscore(name) %>/<%= Name %>WebPart.js",
-					"manifest": "./src/webparts/<%= h.inflection.underscore(name) %>/<%= Name %>WebPart.manifest.json"
-				},
