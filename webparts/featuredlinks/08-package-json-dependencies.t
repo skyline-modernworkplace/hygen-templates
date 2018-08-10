@@ -1,7 +1,3 @@
 ---
-inject: true
-to: package.json
-after: dependencies
-skip_if: sp-pnp-js
+sh: "npm install @pnp/js"
 ---
-    "sp-pnp-js": "^3.0.6",
