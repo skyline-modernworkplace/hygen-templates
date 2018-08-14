@@ -1,3 +1,3 @@
 ---
-sh: "yarn add @pnp/sp"
+sh: "npm install @pnp/sp"
 ---
