@@ -5,8 +5,8 @@ if (params && params.name && params.folder) {
     fileHelpers.modifyJson("config/config.json", config => {
         let firstBundle = Object.keys(config.bundles)[0];
         config.bundles[firstBundle].components.push({
-            "entrypoint": `./lib/webparts/${params.folder}/${params.name}WebPart.js`,
-            "manifest": `./src/webparts/${params.folder}/${params.name}WebPart.manifest.json`
+            "entrypoint": `./lib/${params.folder}/${params.name}.js`,
+            "manifest": `./src/${params.folder}/${params.name}.manifest.json`
         })
         return config;
     })
