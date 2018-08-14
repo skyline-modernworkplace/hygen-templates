@@ -1,6 +1,16 @@
 const fs = require("fs");
 const pathUtils = require("path");
 
+let replaceFile = function(path, contents) {
+    try {
+        fs.writeFileSync(_getFilePath(path), contents);
+
+    } catch(err) {
+        console.log(err)
+        console.log("Unable to rewrite file:", path)
+    }
+}
+
 let findAndReplace = function(path, regex, replaceStr) {
     try {
         let fileContents = fs.readFileSync(_getFilePath(path),"utf8");
@@ -36,4 +46,4 @@ let getJsonFile = function(path) {
         console.log("Unable to get JSON file:" + path);
     } 
 }
-module.exports = { modifyJson, getJsonFile, findAndReplace }
+module.exports = { modifyJson, getJsonFile, findAndReplace, replaceFile }
