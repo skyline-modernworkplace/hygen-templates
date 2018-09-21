@@ -9,7 +9,7 @@ Function CheckExists($SrcPath) {
         $itemCount = (Get-ChildItem $path | Measure-Object).Count
         return $itemCount -gt 0
     } else {
-        return false
+        return $false
     }
 }
 if (CheckExists -SrcPath $Id) {
