@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= h.inflection.underscore(name) %>/PropertyField<%= h.inflection.camelize(name, false) %>.ts
+to: <%= path %>/propertyfield_<%= h.inflection.underscore(name) %>/PropertyField<%= h.inflection.camelize(name, false) %>.ts
 ---
 <%
  Name = h.inflection.camelize(name, false)
