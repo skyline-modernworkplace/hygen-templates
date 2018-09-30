@@ -17,4 +17,6 @@ if (CheckExists -SrcPath $Id) {
 } else {
     Write-Host "IMPORTING BIT COMPONENT"
     bit import droopytersen.portalsdev/$Id --ignore-package-json
+    $nodeScript = Join-Path -Path $pwd -ChildPath "_templates/_helpers/removeBitFromPackageJson.js"
+    node $nodeScript;
 }
