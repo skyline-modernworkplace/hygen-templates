@@ -48,7 +48,7 @@ node "_templates/spfx/project/cleanup.js"
 
 npm install @pnp/spfx-controls-react @pnp/spfx-property-controls spscript date-fns react@latest react-dom@latest @types/react@latest @types/react-dom@latest office-ui-fabric-react
 
-
+hygen spfx project
 hygen webparts blank --name "Example" --displayName "Example (Custom)" --description "Example Web Part"
 
 git add -A 
@@ -59,8 +59,9 @@ if ($shouldCreateSite) {
     Connect-PnPOnline https://skylinespark.sharepoint.com
     New-PnPSite -Type CommunicationSite -Title $siteTitle -Url $siteUrl
     Connect-PnPOnline $siteUrl
-    Add-PnPSiteCollectionAdmin -Owners @( "sotto@skylinespark.onmicrosoft.com", "apetersen@skylinespark.onmicrosoft.com" )
+    Add-PnPSiteCollectionAdmin -Owners @( "sotto@skylinespark.onmicrosoft.com", "apetersen@skylinespark.onmicrosoft.com", "wspiering@skylinespark.onmicrosoft.com" )
     Add-PnPSiteCollectionAppCatalog -Site $siteUrl
 }
 
 npm install
+npm run fixbuild
