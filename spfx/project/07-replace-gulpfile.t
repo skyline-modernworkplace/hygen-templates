@@ -1,3 +1,3 @@
 ---
-sh: "node \"_templates/appcustomizers/menu/replaceGulpFile.js"
+sh: "node \"_templates/spfx/project/replaceGulpFile.js"
 ---
