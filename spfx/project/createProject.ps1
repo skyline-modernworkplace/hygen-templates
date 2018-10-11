@@ -41,9 +41,13 @@ rimraf src/webparts/deleteMe
 .\_templates\_helpers\TryBitImport.ps1 -Id core/polyfills
 .\_templates\_helpers\TryBitImport.ps1 -Id core/utils
 .\_templates\_helpers\TryBitImport.ps1 -Id components/webpart_title
+.\_templates\_helpers\TryBitImport.ps1 -Id components/site-data
+.\_templates\_helpers\TryBitImport.ps1 -Id components/site-url-input
+.\_templates\_helpers\TryBitImport.ps1 -Id propertyfields/propertyfield_sitepicker
 node "_templates/spfx/project/cleanup.js"
 
-npm install @pnp/spfx-controls-react @pnp/spfx-property-controls spscript date-fns
+npm install @pnp/spfx-controls-react @pnp/spfx-property-controls spscript date-fns react@latest react-dom@latest @types/react@latest @types/react-dom@latest office-ui-fabric-react
+
 
 hygen webparts blank --name "Example" --displayName "Example (Custom)" --description "Example Web Part"
 
