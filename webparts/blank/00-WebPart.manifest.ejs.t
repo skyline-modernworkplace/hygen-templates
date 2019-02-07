@@ -19,7 +19,7 @@ to: src/webparts/<%= h.inflection.underscore(name) %>/<%= h.inflection.camelize(
       "description": { "default": "<%= description %>" },
       "officeFabricIconFontName": "Vacation",
       "properties": {
-        "description": "by @portalsdev"
+        "title": "<%= displayName %>"
       }
     }]
   }
