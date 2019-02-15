@@ -1,4 +1,5 @@
 let fileHelpers = require("../../_helpers/fileHelpers");
+console.log("REPLACE GULP FILE");
 
 let contents = `const gulp = require('gulp');
 const build = require('@microsoft/sp-build-web');
@@ -13,5 +14,5 @@ build.configureWebpack.mergeConfig({
 });
 
 build.initialize(gulp);
-`
+`;
 fileHelpers.replaceFile("gulpfile.js", contents);
