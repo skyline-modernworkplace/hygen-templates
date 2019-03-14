@@ -3,12 +3,11 @@ $projectFolder = Read-Host "What is the project folder name?"
 
 # BEGIN: ASK IF IT SHOULD CREATE A SPARK SITE
 $shouldCreateSiteInput = Read-Host "Create new SPARK Communication Site? ( y / n )" 
-Switch ($shouldCreateSiteInput) 
- { 
-   Y {$shouldCreateSite=$true} 
-   N {$shouldCreateSite=$false} 
-   Default {$shouldCreateSite=$false} 
- }
+Switch ($shouldCreateSiteInput) { 
+    Y {$shouldCreateSite = $true} 
+    N {$shouldCreateSite = $false} 
+    Default {$shouldCreateSite = $false} 
+}
 
 if ($shouldCreateSite) {
     $siteTitle = Read-Host "What is the Site Title?"
@@ -79,5 +78,3 @@ if ($shouldCreateSite) {
 }
 
 npm install
-# Removed teh nested version of typescript compliler found inside @microsoft/gulp*-typescript/nodemodule/typescript
-npm run fixbuild
