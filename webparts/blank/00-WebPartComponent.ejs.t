@@ -4,12 +4,23 @@ to: src/webparts/<%= h.inflection.underscore(name) %>/components/<%= h.inflectio
 <%
  Name = h.inflection.camelize(name, false)
 %>
-import * as React from 'react';
+import * as React from "react";
 import * as SPScript from "spscript";
-import { DisplayMode } from '@microsoft/sp-core-library';
-import styles from "./<%= Name %>.module.scss";
-import WebPartTitle from '../../../components/webpart_title/WebPartTitle';
-import { useSiteData, Loading, InvalidSitePlaceholder, validateListExists } from "../../../components/site-data/SiteData";
+import { DisplayMode } from "@microsoft/sp-core-library";
+import WebPartTitle from "../../../components/webpart_title/WebPartTitle";
+import {
+  useSiteData,
+  Loading,
+  InvalidSitePlaceholder,
+  validateListExists,
+} from "../../../components/site-data/SiteData";
+import { IReadonlyTheme } from "@microsoft/sp-component-base";
+import styled, { ThemeProvider } from "styled-components";
+
+const Container = styled.div`
+  position: relative;
+  box-sizing: border-box;
+`;
 
 function <%= Name %>(props: <%= Name %>Props) {
   let { data, isLoading, validation } = useSiteData<Data>({
@@ -22,20 +33,23 @@ function <%= Name %>(props: <%= Name %>Props) {
 
   const renderContent = () => {
     if (isLoading) return <Loading />;
-    if (!validation.isValid) return <InvalidSitePlaceholder message="Sorry couldn't find that list on that site" />;
+    if (!validation.isValid)
+      return <InvalidSitePlaceholder message="Sorry couldn't find that list on that site" />;
     return (
       <div>
         <h4>Site Pages Count</h4>
-        <h1>{data.count}</h1>
+        <div>{data.count}</div>
       </div>
     );
   };
 
   return (
-    <div className={styles.container}>
-      <WebPartTitle {...props.webpart} />
-      {renderContent()}
-    </div>
+    <ThemeProvider theme={props.webpart.theme}>
+      <Container>
+        <WebPartTitle {...props.webpart} />
+        {renderContent()}
+      </Container>
+    </ThemeProvider>
   );
 }
 export default React.memo(<%= Name %>);
@@ -46,6 +60,7 @@ export interface <%= Name %>Props {
         displayMode: DisplayMode,
         updateProperty: (key:string, value:string) => void,
         webUrl: string,
+        theme: IReadonlyTheme;
     },
 }
 

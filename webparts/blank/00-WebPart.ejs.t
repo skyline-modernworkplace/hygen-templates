@@ -11,8 +11,30 @@ import { BaseClientSideWebPart, IPropertyPaneConfiguration } from '@microsoft/sp
 
 import <%= Name %>, { <%= Name %>Props } from "./components/<%= Name %>";
 import { WebPartProperties, getPropertyPane } from "./<%= Name %>Properties";
+import { ThemeProvider, IReadonlyTheme, ThemeChangedEventArgs } from "@microsoft/sp-component-base";
 
 export default class <%= Name %>WebPart extends BaseClientSideWebPart<WebPartProperties> {
+    _themeProvider: ThemeProvider;
+    _theme: IReadonlyTheme;
+
+    async onInit() {
+        await this.initTheme();
+        return super.onInit();
+    }
+
+    async initTheme() {
+        // Consume the new ThemeProvider service
+        this._themeProvider = this.context.serviceScope.consume(ThemeProvider.serviceKey);
+        // If it exists, get the theme variant
+        this._theme = this._themeProvider.tryGetTheme();
+        // Register a handler to be notified if the theme variant changes
+        this._themeProvider.themeChangedEvent.add(this, this._handleThemeChangedEvent);
+    }
+
+    private _handleThemeChangedEvent(args: ThemeChangedEventArgs): void {
+        this._theme = args.theme;
+        this.render();
+    }
 
     public render(): void {
       
@@ -21,7 +43,8 @@ export default class <%= Name %>WebPart extends BaseClientSideWebPart<WebPartPro
                 title: this.properties.title,
                 displayMode: this.displayMode,
                 updateProperty: this.handleUpdate.bind(this),
-                webUrl: this.context.pageContext.web.absoluteUrl
+                webUrl: this.context.pageContext.web.absoluteUrl,
+                theme: this._theme
             },
         }
         var element = React.createElement(<%= Name %>, props);

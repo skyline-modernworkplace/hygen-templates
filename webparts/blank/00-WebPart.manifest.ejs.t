@@ -11,6 +11,7 @@ to: src/webparts/<%= h.inflection.underscore(name) %>/<%= h.inflection.camelize(
     "componentType": "WebPart",
     "version": "*",
     "manifestVersion": 2,
+    "supportsThemeVariants": true,
     "requiresCustomScript": false,
     "preconfiguredEntries": [{
       "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
