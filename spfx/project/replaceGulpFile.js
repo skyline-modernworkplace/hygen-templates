@@ -13,10 +13,7 @@ build.configureWebpack.mergeConfig({
     }
 });
 
-build.tscCmd.mergeConfig({
-  overridePackagePath: "node_modules/typescript",
-});
-
 build.initialize(gulp);
 `;
+
 fileHelpers.replaceFile("gulpfile.js", contents);
