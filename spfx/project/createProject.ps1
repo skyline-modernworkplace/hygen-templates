@@ -26,7 +26,6 @@ git init
 # SETUP HYGEN TEMPLATES
 git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
 Set-Location _templates
-git checkout codesnippets
 npm install
 Set-Location ..
 
