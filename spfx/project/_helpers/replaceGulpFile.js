@@ -1,4 +1,4 @@
-let fileHelpers = require("../../_helpers/fileHelpers");
+let fileHelpers = require("../../../_helpers/fileHelpers");
 console.log("REPLACE GULP FILE");
 
 let contents = `const gulp = require('gulp');

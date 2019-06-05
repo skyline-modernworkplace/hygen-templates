@@ -1,3 +1,3 @@
 ---
-sh: "powershell _templates/spfx/project/codesnippets.ps1"
+sh: "powershell _templates/spfx/project/_helpers/codesnippets.ps1"
 ---

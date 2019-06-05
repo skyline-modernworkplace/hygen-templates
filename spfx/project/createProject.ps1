@@ -26,6 +26,7 @@ git init
 # SETUP HYGEN TEMPLATES
 git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
 Set-Location _templates
+git checkout codesnippets
 npm install
 Set-Location ..
 
@@ -37,18 +38,11 @@ yo @microsoft/sharepoint --framework "react" --skip-install --skip-feature-deplo
 git add -A 
 git commit -m "generated microsoft project"
 
-node "_templates/spfx/project/updateConfigs.js"
-git add -A 
-git commit -m "Updated default configs"
-
-
 # Delete the webpart the Microsoft's Generator created
 rimraf src/webparts/deleteMe
 
 # Copy in core source code
 Copy-Item .\_templates\_static\* .\ -Force -Recurse
-
-node "_templates/spfx/project/cleanup.js"
 
 # Run the hygen project generator (add npm scripts, setup /tasks etc...)
 hygen spfx project
@@ -58,7 +52,7 @@ hygen webparts blank --name "Example" --displayName "Example (Custom)" --descrip
 
 # GIT Commit
 git add -A 
-git commit -m "added core source code and generated example webpart"
+git commit -m "Added core source code and generated example webpart"
 
 # Create the SPARK Communication site if user said to
 if ($shouldCreateSite) {

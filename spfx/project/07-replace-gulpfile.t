@@ -1,3 +1,3 @@
 ---
-sh: "node \"_templates/spfx/project/replaceGulpFile.js"
+sh: "node \"_templates/spfx/project/_helpers/replaceGulpFile.js"
 ---
