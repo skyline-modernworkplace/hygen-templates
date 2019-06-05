@@ -11,10 +11,19 @@ fileHelpers.findAndReplace(
 // In "lib" replace es5 with "es2017"
 fileHelpers.modifyJson("tsConfig.json", tsConfig => {
 	tsConfig.compilerOptions.lib = ["es2017", "dom"];
-	tsConfig.allowSyntheticDefaultImports = true;
+	tsConfig.compilerOptions.allowSyntheticDefaultImports = true;
 
 	tsConfig.extends = "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json";
 	return tsConfig;
+});
+
+fileHelpers.modifyJson("tslint.json", tslint => {
+	console.log(tslint);
+	tslint.rules["member-access"] = false;
+	tslint.rules["no-function-expression"] = false;
+	tslint.rules["no-unnecessary-semicolons"] = false;
+	tslint.rules["no-use-before-declare"] = false;
+	return tslint;
 });
 
 // config/config.json
