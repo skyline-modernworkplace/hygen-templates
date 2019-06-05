@@ -13,7 +13,7 @@ import {
   Loading,
   InvalidSitePlaceholder,
   validateListExists,
-} from "../../../components/site-data/SiteData";
+} from "../../../hooks/useSiteData";
 import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import styled, { ThemeProvider } from "styled-components";
 

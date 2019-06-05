@@ -18,6 +18,10 @@ export default class <%= Name %>WebPart extends BaseClientSideWebPart<WebPartPro
     _theme: IReadonlyTheme;
 
     async onInit() {
+        window.__portalsDev = {
+            siteUrl: this.context.pageContext.site.serverRelativeUrl,
+            webUrl: this.context.pageContext.web.serverRelativeUrl,
+        };
         await this.initTheme();
         return super.onInit();
     }

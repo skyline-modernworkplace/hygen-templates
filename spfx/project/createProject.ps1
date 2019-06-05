@@ -4,9 +4,9 @@ $projectFolder = Read-Host "What is the project folder name?"
 # BEGIN: ASK IF IT SHOULD CREATE A SPARK SITE
 $shouldCreateSiteInput = Read-Host "Create new SPARK Communication Site? ( y / n )" 
 Switch ($shouldCreateSiteInput) { 
-    Y {$shouldCreateSite = $true} 
-    N {$shouldCreateSite = $false} 
-    Default {$shouldCreateSite = $false} 
+    Y { $shouldCreateSite = $true } 
+    N { $shouldCreateSite = $false } 
+    Default { $shouldCreateSite = $false } 
 }
 
 if ($shouldCreateSite) {
@@ -45,17 +45,7 @@ node "_templates/spfx/project/updateConfigs.js"
 # Delete the webpart the Microsoft's Generator created
 rimraf src/webparts/deleteMe
 
-# Import commonly used BIT components
-.\_templates\_helpers\TryBitImport.ps1 -Id core/polyfills
-.\_templates\_helpers\TryBitImport.ps1 -Id core/utils
-.\_templates\_helpers\TryBitImport.ps1 -Id components/webpart_title
-.\_templates\_helpers\TryBitImport.ps1 -Id components/site-data
-.\_templates\_helpers\TryBitImport.ps1 -Id components/site-url-input
-.\_templates\_helpers\TryBitImport.ps1 -Id propertyfields/propertyfield_sitepicker
 node "_templates/spfx/project/cleanup.js"
-
-# Install extra npm packages (including upgrading React)
-npm install @pnp/spfx-controls-react @pnp/spfx-property-controls spscript date-fns react@latest react-dom@latest @types/react@latest @types/react-dom@latest office-ui-fabric-react
 
 # Run the hygen project generator (add npm scripts, setup /tasks etc...)
 hygen spfx project
