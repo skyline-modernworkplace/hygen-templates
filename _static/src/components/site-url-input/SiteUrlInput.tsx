@@ -4,17 +4,14 @@ import styles from "./SiteUrlInput.module.scss";
 import * as SPScript from "spscript";
 import { debounce } from "../../core/utils/utils";
 
-const getSitePath = (absoluteUrl:string) => {
-    if(!absoluteUrl) return null;
-    let siteUrlIndex = absoluteUrl.toLowerCase().indexOf("sites/");
-    if(siteUrlIndex < 0 ) return null;
-    return absoluteUrl.substring(siteUrlIndex + 6);
-}
+const getSitePath = (absoluteUrl: string) => {
+	if (!absoluteUrl) return null;
+	let siteUrlIndex = absoluteUrl.toLowerCase().indexOf("sites/");
+	if (siteUrlIndex < 0) return null;
+	return absoluteUrl.substring(siteUrlIndex + 6);
+};
 
-export default class SiteUrlInput extends React.PureComponent<
-	SiteUrlInputProps,
-	SiteUrlInputState
-> {
+export default class SiteUrlInput extends React.PureComponent<SiteUrlInputProps, SiteUrlInputState> {
 	state = {
 		value: getSitePath(this.props.url) || "",
 		isLoading: false,
@@ -38,8 +35,7 @@ export default class SiteUrlInput extends React.PureComponent<
 
 	processUrl = value => {
 		// remove the leading slash if it is there
-		if (value[value.length - 1] === "/")
-			value = value.substr(0, value.length - 1);
+		if (value[value.length - 1] === "/") value = value.substr(0, value.length - 1);
 		return getUrlPrefix() + value;
 	};
 
@@ -68,31 +64,18 @@ export default class SiteUrlInput extends React.PureComponent<
 	render() {
 		let inputClass = [
 			styles.inputContainer,
-			this.state.isValid === null
-				? styles.loading
-				: this.state.isValid
-				? styles.success
-				: styles.error,
+			this.state.isValid === null ? styles.loading : this.state.isValid ? styles.success : styles.error,
 		]
 			.filter(c => c)
 			.join(" ");
 
 		return (
 			<div>
-				{this.props.label && (
-					<div className={styles.label}>{this.props.label}</div>
-				)}
+				{this.props.label && <div className={styles.label}>{this.props.label}</div>}
 
 				<div className={inputClass}>
-					<TextField
-						value={this.state.value}
-						onChanged={this.onInput}
-					/>
-					{this.state.value && (
-						<div className={styles.message}>
-							{this.renderMessage()}
-						</div>
-					)}
+					<TextField value={this.state.value} onChanged={this.onInput} />
+					{this.state.value && <div className={styles.message}>{this.renderMessage()}</div>}
 				</div>
 			</div>
 		);
@@ -104,13 +87,13 @@ let getUrlPrefix = function() {
 };
 
 export interface SiteUrlInputState {
-    value: string;
-    isLoading: boolean;
-    isValid: boolean | null;
+	value: string;
+	isLoading: boolean;
+	isValid: boolean | null;
 }
 
 export interface SiteUrlInputProps {
-    url?: string;
-    onChange?: (url, isValid) => void;
-    label?:string
+	url?: string;
+	onChange?: (url, isValid) => void;
+	label?: string;
 }
