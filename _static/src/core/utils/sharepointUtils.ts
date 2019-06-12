@@ -1,24 +1,20 @@
-import * as SPScript from "spscript";
-
 export function checkIsSharePointLink(url: string) {
   return url && url.search(/\.sharepoint\.com/i) > -1;
 }
-declare global {
-  interface Window {
-    __portalsDev: {
-      siteUrl: string;
-      webUrl: string;
-    };
-  }
+
+export function getCurrentWebUrl() {
+  return window.__portalsDev && window.__portalsDev.webUrl ? window.__portalsDev.webUrl : "";
+}
+export function getCurrentSiteCollectionUrl() {
+  return window.__portalsDev && window.__portalsDev.siteUrl ? window.__portalsDev.siteUrl : "";
 }
 
 export function getSiteUrl(url?: string) {
-  if (!url && window.__portalsDev) {
-    return window.__portalsDev.siteUrl;
-  }
+  if (!url && window.__portalsDev && window.__portalsDev.siteUrl) return window.__portalsDev.siteUrl;
+
   url = (url || window.location.href).toLowerCase();
   let managedPathIndex = url.search(/\/sites\/|\/teams\//i);
-  if (!checkIsSharePointLink(url) || managedPathIndex < 0) return null;
+  if (!checkIsSharePointLink(url) || managedPathIndex < 0) return "";
   let siteUrl = url;
   let trailingCharIndexes = [
     url.indexOf("/", managedPathIndex + 7),
@@ -45,12 +41,12 @@ export function getTenant(url?: string) {
   return subdomain.split("-")[0];
 }
 
-export async function checkListExists(siteUrl: string, listName: string) {
-  try {
-    let ctx = SPScript.createContext(siteUrl);
-    let listInfo = await ctx.lists(listName).getInfo();
-    return true;
-  } catch (err) {
-    return false;
+
+declare global {
+  interface Window {
+    __portalsDev: {
+      siteUrl: string;
+      webUrl: string;
+    };
   }
 }
