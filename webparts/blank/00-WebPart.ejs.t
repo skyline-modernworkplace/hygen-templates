@@ -19,8 +19,8 @@ export default class <%= Name %>WebPart extends BaseClientSideWebPart<WebPartPro
 
     async onInit() {
         window.__portalsDev = {
-            siteUrl: this.context.pageContext.site.serverRelativeUrl,
-            webUrl: this.context.pageContext.web.serverRelativeUrl,
+            siteUrl: this.context.pageContext.site.absoluteUrl,
+            webUrl: this.context.pageContext.web.absoluteUrl,
         };
         await this.initTheme();
         return super.onInit();
