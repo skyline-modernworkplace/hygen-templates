@@ -1,5 +1,5 @@
 ---
-to: src/webparts/<%= h.inflection.underscore(name) %>/<%= h.inflection.camelize(name, false) %>WebPart.ts
+to: src/webparts/<%= h.inflection.camelize(name,false) %>/<%= h.inflection.camelize(name, false) %>WebPart.ts
 ---
 <%
  Name = h.inflection.camelize(name, false)
