@@ -53,7 +53,7 @@ hygen webparts blank
 
 git add -A 
 git commit -m "Added core source code and generated example webpart"
-npm install
+# npm install
 
 # TODO: Fix duplicate react types. 
 # TODO: Yank the localized webpart strings from the microsoft web part
