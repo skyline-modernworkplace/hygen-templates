@@ -1,3 +1,3 @@
 ---
-sh: "npx npm-add spscript date-fns styled-components"
+sh: "npx npm-add-dependencies spscript date-fns styled-components"
 ---

@@ -45,9 +45,14 @@ Copy-Item .\_templates\_static\* .\ -Force -Recurse
 
 hygen spfx project
 # Generate an example webpart so the bundle isn't empty
+Write-Host ""
+Write-Host "=========================="
+Write-Host "=========================="
+Write-Host "Running Web Part Generator"
 hygen webparts blank
 
 git add -A 
+npx npm-add-dependencies spscript date-fns styled-components
 git commit -m "Added core source code and generated example webpart"
 npm install
 
