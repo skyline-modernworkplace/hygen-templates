@@ -45,7 +45,7 @@ Copy-Item .\_templates\_static\* .\ -Force -Recurse
 
 hygen spfx project
 # Generate an example webpart so the bundle isn't empty
-hygen webparts blank --name "Example" --displayName "Example (Custom)" --description "Example Web Part"
+hygen webparts blank
 
 git add -A 
 git commit -m "Added core source code and generated example webpart"
