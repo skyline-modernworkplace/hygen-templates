@@ -53,3 +53,4 @@ npm install
 
 # TODO: Fix duplicate react types. 
 # TODO: Yank the localized webpart strings from the microsoft web part
+# TODO: update .gitignore to replace "*.sppkg" with "sharepoint/solution"
