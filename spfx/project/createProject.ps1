@@ -9,21 +9,6 @@ if (!$projectFolder) {
 mkdir $projectFolder
 Set-Location $projectFolder
 
-# SETUP MICROSOFT GENERATOR CONFIG
-$yeomanConfig = "{
-`"@microsoft/generator-sharepoint`": {
-    `"environment`": `"spo`",
-    `"componentType`": `"webpart`",
-    `"framework`": `"react`",
-    `"version`": `"1.9.1`",
-    `"packageManager`": `"npm`",
-    `"whichFolder`": `"current`",
-    `"skipFeatureDeployment`": true,
-    `"isDomainIsolated`": false
-  }
-}"
-Set-Content -Path ".yo-rc.json" -Value $yeomanConfig;
-
 git init
 # SETUP HYGEN TEMPLATES
 git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
@@ -32,16 +17,13 @@ npm install
 Set-Location ..
 
 # RUN PNP GENERATOR
-yo @pnp/spfx --skip-install --environment "spo"
-
+npx -p yo -p @pnp/generator-spfx yo @pnp/spfx --skip-install --environment "spo"
 git add -A 
 git commit -m "Generated PnP SPFx Project project"
 
 # Delete the webpart the Microsoft's Generator created
 rimraf src/webparts/helloWorld
 
-# Copy in core source code
-Copy-Item .\_templates\_static\* .\ -Force -Recurse
 
 hygen spfx project
 # Generate an example webpart so the bundle isn't empty
