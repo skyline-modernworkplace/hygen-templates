@@ -9,6 +9,22 @@ if (!$projectFolder) {
 mkdir $projectFolder
 Set-Location $projectFolder
 
+# SETUP MICROSOFT GENERATOR CONFIG
+$yeomanConfig = "{
+  `"@microsoft/generator-sharepoint`": {
+      `"environment`": `"spo`",
+      `"componentType`": `"webpart`",
+      `"framework`": `"react`",
+      `"version`": `"1.9.1`",
+      `"packageManager`": `"npm`",
+      `"whichFolder`": `"current`",
+      `"skipFeatureDeployment`": true,
+      `"isDomainIsolated`": false
+    }
+  }"
+  
+Set-Content -Path ".yo-rc.json" -Value $yeomanConfig;
+
 git init
 # SETUP HYGEN TEMPLATES
 git clone https://skyline.visualstudio.com/Skyline-Portals-Reusables/_git/hygen-templates _templates
