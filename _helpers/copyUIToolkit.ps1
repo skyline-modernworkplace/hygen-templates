@@ -5,4 +5,5 @@ $srcBase = "_temp\\portalsdev-ui-toolkit\src\\"
 Copy-Item -Path ($srcBase + "hooks") -Destination ($destBase + "hooks") -Force -Recurse
 Copy-Item -Path ($srcBase + "components") -Destination ($destBase ) -Force -Recurse
 Copy-Item -Path ($srcBase + "core") -Destination ($destBase) -Force -Recurse
+Copy-Item -Path ($srcBase + "propertyfields") -Destination ($destBase) -Force -Recurse
 rimraf _temp
