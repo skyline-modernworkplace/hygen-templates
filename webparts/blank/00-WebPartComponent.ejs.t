@@ -4,30 +4,25 @@ to: src/webparts/<%= h.inflection.camelize(name,false) %>/components/<%= h.infle
 <%
  Name = h.inflection.camelize(name, false)
 %>
-import * as React from "react";
-import * as SPScript from "spscript";
+import React from "react";
+import SPScript from "spscript";
 import { DisplayMode } from "@microsoft/sp-core-library";
-import WebPartTitle from "../../../components/webpart_title/WebPartTitle";
+import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
+import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import {
   useSiteData,
   Loading,
   InvalidSitePlaceholder,
-  validateListExists,
-} from "../../../hooks/useSiteData";
-import { IReadonlyTheme } from "@microsoft/sp-component-base";
-import styled, { ThemeProvider } from "styled-components";
-
-const Container = styled.div`
-  position: relative;
-  box-sizing: border-box;
-`;
+  validateListExists
+} from "../../../ui-toolkit/hooks/useSiteData";
+import PortalsThemeProvider from "../../../ui-toolkit/components/PortalsThemeProvider/PortalsThemeProvider";
 
 function <%= Name %>(props: <%= Name %>Props) {
-  let { data, isLoading, validation } = useSiteData<Data>({
+  let { data, isLoading, validation } = useSiteData<DemoData>({
     dataKey: props.webpart.webUrl + props.webpart.title,
     getData: siteUrl => getListItemCount(siteUrl, "Site Pages"),
     siteUrl: props.webpart.webUrl,
-    // Optional - if not passed it will validate the site exists
+    // Optional - if not passed it will validate the site exists.
     validate: siteUrl => validateListExists(siteUrl, "Site Pages"),
   });
 
@@ -44,12 +39,13 @@ function <%= Name %>(props: <%= Name %>Props) {
   };
 
   return (
-    <ThemeProvider theme={props.webpart.theme}>
-      <Container>
-        <WebPartTitle {...props.webpart} />
-        {renderContent()}
-      </Container>
-    </ThemeProvider>
+    <PortalsThemeProvider theme={props.webpart.theme}>
+      <WebPartTitle
+        {...props.webpart}
+        updateProperty={val => props.webpart.updateProperty("title", val)}
+      />
+      {renderContent()}
+    </PortalsThemeProvider>
   );
 }
 export default React.memo(<%= Name %>);
@@ -64,12 +60,13 @@ export interface <%= Name %>Props {
     },
 }
 
-const getListItemCount = async (siteUrl, listTitle): Promise<Data> => {
+// TODO: Delete this. You'll have your own async Data Access function
+const getListItemCount = async (siteUrl, listTitle): Promise<DemoData> => {
   let ctx = SPScript.createContext(siteUrl);
   let items = await ctx.lists(listTitle).getItems("$select=Id");
   return { count: items.length };
 };
 
-interface Data {
+interface DemoData {
   count: number;
 }

@@ -1,29 +1,13 @@
 Param(
-    $Name
+  $Name
 )
 $projectFolder = $Name;
 
 if (!$projectFolder) {
-    $projectFolder = Read-Host "What is the project folder name?"
+  $projectFolder = Read-Host "What is the project folder name?"
 }
 mkdir $projectFolder
 Set-Location $projectFolder
-
-# SETUP MICROSOFT GENERATOR CONFIG
-$yeomanConfig = "{
-  `"@microsoft/generator-sharepoint`": {
-      `"environment`": `"spo`",
-      `"componentType`": `"webpart`",
-      `"framework`": `"react`",
-      `"version`": `"1.9.1`",
-      `"packageManager`": `"npm`",
-      `"whichFolder`": `"current`",
-      `"skipFeatureDeployment`": true,
-      `"isDomainIsolated`": false
-    }
-  }"
-  
-Set-Content -Path ".yo-rc.json" -Value $yeomanConfig;
 
 git init
 # SETUP HYGEN TEMPLATES
@@ -33,7 +17,7 @@ npm install
 Set-Location ..
 
 # RUN PNP GENERATOR
-npx -p yo -p @pnp/generator-spfx yo @pnp/spfx --skip-install --environment "spo"
+yo @pnp/spfx --skip-install --environment "spo"
 git add -A 
 git commit -m "Generated PnP SPFx Project project"
 
@@ -47,12 +31,7 @@ Write-Host ""
 Write-Host "=========================="
 Write-Host "=========================="
 Write-Host "Running Web Part Generator"
-hygen webparts blank
+hygen webparts blank --name Example
 
 git add -A 
 git commit -m "Added core source code and generated example webpart"
-# npm install
-
-# TODO: Fix duplicate react types. 
-# TODO: Yank the localized webpart strings from the microsoft web part
-# TODO: update .gitignore to replace "*.sppkg" with "sharepoint/solution"

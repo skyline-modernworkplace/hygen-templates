@@ -1,29 +1,16 @@
-const uuid = require('uuid/v4');
-let prompts = [
-    {
-        type: "input",
-        name: "name",
-        message: "Name (Capitlized, No Spaces ex: 'FeaturedLinks'):"
-    },
-    {
-        type: "input",
-        name: "displayName",
-        message: "Display Name (ex: 'Featured Links'):"
-    },
-    {
-        type: "input",
-        name: "description",
-        message: "Web Part Description:"
-    }
-]
+const uuid = require("uuid/v4");
 module.exports = {
-    prompt: ({ inquirer, args }) => {
-        console.log(args);
-        let argKeys = Object.keys(args);
-        return inquirer.prompt(prompts.filter(p => !argKeys.includes(p.name)))
-        .then(params => {
-            params.componentId = uuid();
-            return { ...params, ...args };
-        })
-    }
-}
+	params: ({ args }) => {
+		if (!args || !args.name) {
+			console.log("Pass a --name arg to name the webpart");
+		}
+		let name = args.name || "NewWebPart";
+		return {
+			name,
+			displayName: name,
+			description: name + " description",
+			componentId: uuid(),
+			...args,
+		};
+	},
+};
