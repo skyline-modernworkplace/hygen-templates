@@ -1,3 +1,3 @@
 ---
-sh: "powershell Copy-Item .\_templates\_static\* .\ -Force -Recurse"
+sh: "powershell Copy-Item ./_templates/_static/* . -Force -Recurse"
 ---
