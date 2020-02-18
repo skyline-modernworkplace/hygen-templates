@@ -1,3 +1,0 @@
----
-sh: "gulp clean"
----
