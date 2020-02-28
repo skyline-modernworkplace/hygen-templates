@@ -27,3 +27,11 @@ From the root of the project run
 ```sh
 hygen webparts featured-links
 ```
+
+## Add Alerts Banner
+
+From the root of the project run
+
+```sh
+hygen webparts alerts-banner
+```
