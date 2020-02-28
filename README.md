@@ -3,7 +3,7 @@
 ## Create a Project
 
 ```sh
-npm init skyline-spfx
+npm init skyline-spfx my-new-project
 ```
 
 ## Add a Blank Web Part
