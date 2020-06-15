@@ -12,6 +12,12 @@ npm init skyline-spfx my-new-project
 hygen webparts blank --name NewHires
 ```
 
+## New Custom Property Field
+
+```sh
+hygen spfx propertyfield
+```
+
 ## Add Tabify
 
 From the root of the project run
